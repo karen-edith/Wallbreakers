@@ -18,8 +18,6 @@ class Solution:
             else:
                 return False
 
-        print(checker)
-
         for val in checker.values():
             if val != 0:
                 return False
