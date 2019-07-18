@@ -13,7 +13,7 @@ class LRUCache:
         self.dict = {} # initialize dictionary that will map key value to node
         self.head = Node(0,0) # 0 valued node as head of list
         self.end = Node(0,0) # set up 0 valued node as end of list
-        self.end.previous = self.head # link end node to head node
+        self.end.prev = self.head # link end node to head node
         self.head.next = self.end # link head node to end node
 
     def get(self, key: int) -> int:
@@ -21,11 +21,7 @@ class LRUCache:
         if key in self.dict:
             # grab node
             node = self.dict[key]
-            # if map has only one element, don't delete and add back, instead
-            # return value of node
-            if len(self.dict) == 1:
-                return node.value
-            # otherwise delete node and add to bottom of list, doing this ensures
+            # delete node and add to bottom of list, doing this ensures
             # that we know its being used
             else:
                 self.deleteNode(node)
@@ -64,13 +60,13 @@ class LRUCache:
     # link new node to node at the end of list
     def addNode(self, node):
         # previous node linked to end node
-        previous = self.end.previous
+        previous = self.end.prev
 
         # link previous node to input node
         previous.next = node
         # link input node to end node
         node.next = self.end
         # link end node to input node
-        self.end.previous = node
+        self.end.prev = node
         # link input node to previous node
         node.prev = previous
