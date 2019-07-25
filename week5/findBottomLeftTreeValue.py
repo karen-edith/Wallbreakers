@@ -20,11 +20,10 @@ class Solution:
                 bottomLeft[1] = height
 
             # function calls itself for left values of first branch
+            # this sets up the bottomLeft array with the current leftmost value and the
+            # level it is located at
             bottomLeftValue(root.left, bottomLeft, height + 1)
-            # once left values are calculated other branch values left values
-            # are compared agains the level and leftmost value of the first branch
-            # if there is a higher level and thus different leftmost value it will get
-            # updated
+            # function calls itself for right values afterwards
             bottomLeftValue(root.right, bottomLeft, height + 1)
 
 
