@@ -17,7 +17,7 @@ for i in range(3):
     # when in the child process, get process id
     if processId == 0:
         childProcessId = os.getpid()
-        print('child %s accept on on shared socket(localhost:4240)' % childProcessId)
+        print('child %s accept on on shared socket(localhost:4232)' % childProcessId)
 
     # when a request connection is received
         try:
@@ -32,6 +32,7 @@ for i in range(3):
         # if connection is interrupted byt ctrl+C exit
         except KeyboardInterrupt:
             sys.exit()
+            
 # check and wait for the completion of a child process and return a tuple containing
 # its process Id and its exit status indication
 # if pid equals -1 the request pertains to any child of the current process

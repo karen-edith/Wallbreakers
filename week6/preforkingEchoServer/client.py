@@ -1,4 +1,4 @@
-# 3 client requests
+# 4 connection requests
 import socket
 
 client = socket.socket() # create socket object
@@ -16,5 +16,11 @@ client.close()
 client = socket.socket()
 client.connect(('localhost', 4232))
 client.send(b'test 3')
+print(client.recv(1024).decode())
+client.close()
+
+client = socket.socket()
+client.connect(('localhost', 4232))
+client.send(b'test 4')
 print(client.recv(1024).decode())
 client.close()
